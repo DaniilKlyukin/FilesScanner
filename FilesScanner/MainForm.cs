@@ -2,6 +2,7 @@ using FilesScanner;
 using System.Diagnostics;
 using System.Text.RegularExpressions;
 
+
 namespace FilesScaner
 {
     public partial class MainForm : Form
@@ -51,15 +52,14 @@ namespace FilesScaner
             }
 
             toolStripStatusLabel.Text = "Ведётся поиск";
-
             listView.Items.Clear();
 
             filesSearcher = new FilesSearcher(minSizeMb, namePattern, textBoxRoot.Text);
             filesSearcher.OnFileFound += addFileInfoToListView;
 
-            await filesSearcher.WideSearchAsync();
+            var files = await filesSearcher.WideSearchAsync();
 
-            toolStripStatusLabel.Text = "Поиск завершён";
+            toolStripStatusLabel.Text = $"Поиск завершён: {listView.Items.Count}";
         }
 
         private void addFileInfoToListView(FileInfo fileInfo)
@@ -75,6 +75,7 @@ namespace FilesScaner
             listView.Invoke(() =>
             {
                 listView.Items.Add(item);
+                toolStripStatusLabel.Text = $"Ведётся поиск: {listView.Items.Count}";
             });
         }
 

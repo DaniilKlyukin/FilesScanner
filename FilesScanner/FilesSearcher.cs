@@ -36,26 +36,31 @@ namespace FilesScanner
 
         private IEnumerable<FileInfo> wideSearch(string path)
         {
-            var files = tryGetFilesPathsFromDirectory(path) ?? new List<string>();
+            var pathsQueue = new Queue<string>();
+            pathsQueue.Enqueue(path);
 
-            foreach (var file in files
-                .Select(p => new FileInfo(p))
-                .Where(f => GetSizeMb(f.Length) >= MinSizeMb && NamePattern.IsMatch(f.Name)))
+            while (pathsQueue.Any())
             {
-                OnFileFound?.Invoke(file);
-                yield return file;
-            }
+                var currentPath = pathsQueue.Dequeue();
 
-            if (stopPending)
-                yield break;
+                var files = tryGetFilesPathsFromDirectory(currentPath) ?? new List<string>();
 
-            var folders = tryGetDirectoriesPathsFromDirectory(path) ?? new List<string>();
-
-            foreach (var folder in folders)
-            {
-                foreach (var file in wideSearch(folder))
+                foreach (var file in files
+                    .Select(p => new FileInfo(p))
+                    .Where(f => GetSizeMb(f.Length) >= MinSizeMb && NamePattern.IsMatch(f.Name)))
                 {
+                    if (stopPending)
+                        yield break;
+
+                    OnFileFound?.Invoke(file);
                     yield return file;
+                }
+
+                var folders = tryGetDirectoriesPathsFromDirectory(currentPath) ?? new List<string>();
+
+                foreach (var folder in folders)
+                {
+                    pathsQueue.Enqueue(folder);
                 }
             }
         }
