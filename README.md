@@ -8,6 +8,4 @@
 
 Пример работы, поиск изображений
 
-![image](https://github.com/DaniilKlyukin/FilesScanner/assets/32903150/4c6d2a67-63b8-4f96-903a-ee658f2d1d1d)
-
-
+![image](https://github.com/DaniilKlyukin/FilesScanner/assets/32903150/d4d6f8f0-c3ed-43dd-a105-689566f74310)
