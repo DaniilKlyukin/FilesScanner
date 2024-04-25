@@ -38,7 +38,8 @@ namespace FilesScaner
             if (!Directory.Exists(textBoxRoot.Text))
                 return;
 
-            var minSizeMb = (long)numericUpDownFileSize.Value;
+            var minSizeMb = (long)numericUpDownMinFileSize.Value;
+            var maxSizeMb = (long)numericUpDownMaxFileSize.Value;
             Regex namePattern;
 
             try
@@ -54,7 +55,7 @@ namespace FilesScaner
             toolStripStatusLabel.Text = "Ведётся поиск";
             listView.Items.Clear();
 
-            filesSearcher = new FilesSearcher(minSizeMb, namePattern, textBoxRoot.Text);
+            filesSearcher = new FilesSearcher(minSizeMb, maxSizeMb, namePattern, textBoxRoot.Text);
             filesSearcher.OnFileFound += addFileInfoToListView;
 
             var files = await filesSearcher.WideSearchAsync();
@@ -185,6 +186,18 @@ namespace FilesScaner
 
             // Perform the sort with these new sort options.
             listView.Sort();
+        }
+
+        private void numericUpDownMinFileSize_ValueChanged(object sender, EventArgs e)
+        {
+            if (numericUpDownMinFileSize.Value > numericUpDownMaxFileSize.Value)
+                numericUpDownMaxFileSize.Value = numericUpDownMinFileSize.Value;
+        }
+
+        private void numericUpDownMaxFileSize_ValueChanged(object sender, EventArgs e)
+        {
+            if (numericUpDownMaxFileSize.Value < numericUpDownMinFileSize.Value)
+                numericUpDownMinFileSize.Value = numericUpDownMaxFileSize.Value;
         }
     }
 }

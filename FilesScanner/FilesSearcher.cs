@@ -11,14 +11,16 @@ namespace FilesScanner
 
         public event FileFound? OnFileFound;
         public long MinSizeMb { get; }
+        public long MaxSizeMb { get; }
         public Regex NamePattern { get; }
         public string Root { get; }
 
         private bool stopPending;
 
-        public FilesSearcher(long minSizeMb, Regex namePattern, string root)
+        public FilesSearcher(long minSizeMb, long maxSizeMb, Regex namePattern, string root)
         {
             MinSizeMb = minSizeMb;
+            MaxSizeMb = maxSizeMb;
             NamePattern = namePattern;
             Root = root;
         }
@@ -47,7 +49,14 @@ namespace FilesScanner
 
                 foreach (var file in files
                     .Select(p => new FileInfo(p))
-                    .Where(f => GetSizeMb(f.Length) >= MinSizeMb && NamePattern.IsMatch(f.Name)))
+                    .Where(f =>
+                    {
+                        var size = GetSizeMb(f.Length);
+
+                        return size >= MinSizeMb
+                            && size <= MaxSizeMb
+                            && NamePattern.IsMatch(f.Name);
+                    }))
                 {
                     if (stopPending)
                         yield break;

@@ -33,7 +33,7 @@
             label1 = new Label();
             buttonSelectRoot = new Button();
             label2 = new Label();
-            numericUpDownFileSize = new NumericUpDown();
+            numericUpDownMinFileSize = new NumericUpDown();
             buttonStartSearch = new Button();
             listView = new ListView();
             columnHeaderName = new ColumnHeader();
@@ -47,9 +47,13 @@
             deleteFileToolStripMenuItem = new ToolStripMenuItem();
             textBoxNamePattern = new TextBox();
             label3 = new Label();
-            ((System.ComponentModel.ISupportInitialize)numericUpDownFileSize).BeginInit();
+            label4 = new Label();
+            numericUpDownMaxFileSize = new NumericUpDown();
+            label6 = new Label();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownMinFileSize).BeginInit();
             statusStrip.SuspendLayout();
             contextMenuStrip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownMaxFileSize).BeginInit();
             SuspendLayout();
             // 
             // textBoxRoot
@@ -83,20 +87,21 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(12, 52);
+            label2.Location = new Point(110, 52);
             label2.Name = "label2";
-            label2.Size = new Size(198, 15);
+            label2.Size = new Size(100, 15);
             label2.TabIndex = 3;
-            label2.Text = "Минимальный размер файла, Мб:";
+            label2.Text = "Размер файла от";
             // 
-            // numericUpDownFileSize
+            // numericUpDownMinFileSize
             // 
-            numericUpDownFileSize.Location = new Point(216, 50);
-            numericUpDownFileSize.Maximum = new decimal(new int[] { 100000000, 0, 0, 0 });
-            numericUpDownFileSize.Name = "numericUpDownFileSize";
-            numericUpDownFileSize.Size = new Size(96, 23);
-            numericUpDownFileSize.TabIndex = 4;
-            numericUpDownFileSize.Value = new decimal(new int[] { 50, 0, 0, 0 });
+            numericUpDownMinFileSize.Location = new Point(216, 50);
+            numericUpDownMinFileSize.Maximum = new decimal(new int[] { 100000000, 0, 0, 0 });
+            numericUpDownMinFileSize.Name = "numericUpDownMinFileSize";
+            numericUpDownMinFileSize.Size = new Size(96, 23);
+            numericUpDownMinFileSize.TabIndex = 4;
+            numericUpDownMinFileSize.Value = new decimal(new int[] { 50, 0, 0, 0 });
+            numericUpDownMinFileSize.ValueChanged += numericUpDownMinFileSize_ValueChanged;
             // 
             // buttonStartSearch
             // 
@@ -198,17 +203,48 @@
             label3.TabIndex = 11;
             label3.Text = "Regex Шаблон имени:";
             // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(446, 52);
+            label4.Name = "label4";
+            label4.Size = new Size(25, 15);
+            label4.TabIndex = 12;
+            label4.Text = "Мб";
+            // 
+            // numericUpDownMaxFileSize
+            // 
+            numericUpDownMaxFileSize.Location = new Point(344, 50);
+            numericUpDownMaxFileSize.Maximum = new decimal(new int[] { 100000000, 0, 0, 0 });
+            numericUpDownMaxFileSize.Name = "numericUpDownMaxFileSize";
+            numericUpDownMaxFileSize.Size = new Size(96, 23);
+            numericUpDownMaxFileSize.TabIndex = 14;
+            numericUpDownMaxFileSize.Value = new decimal(new int[] { 500000, 0, 0, 0 });
+            numericUpDownMaxFileSize.ValueChanged += numericUpDownMaxFileSize_ValueChanged;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(318, 52);
+            label6.Name = "label6";
+            label6.Size = new Size(20, 15);
+            label6.TabIndex = 13;
+            label6.Text = "до";
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(668, 482);
+            Controls.Add(numericUpDownMaxFileSize);
+            Controls.Add(label6);
+            Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(textBoxNamePattern);
             Controls.Add(statusStrip);
             Controls.Add(listView);
             Controls.Add(buttonStartSearch);
-            Controls.Add(numericUpDownFileSize);
+            Controls.Add(numericUpDownMinFileSize);
             Controls.Add(label2);
             Controls.Add(buttonSelectRoot);
             Controls.Add(label1);
@@ -216,10 +252,11 @@
             Name = "MainForm";
             Text = "Поисковик файлов";
             SizeChanged += MainForm_SizeChanged;
-            ((System.ComponentModel.ISupportInitialize)numericUpDownFileSize).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownMinFileSize).EndInit();
             statusStrip.ResumeLayout(false);
             statusStrip.PerformLayout();
             contextMenuStrip.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)numericUpDownMaxFileSize).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -230,7 +267,7 @@
         private Label label1;
         private Button buttonSelectRoot;
         private Label label2;
-        private NumericUpDown numericUpDownFileSize;
+        private NumericUpDown numericUpDownMinFileSize;
         private Button buttonStartSearch;
         private ListView listView;
         private ColumnHeader columnHeaderName;
@@ -244,5 +281,8 @@
         private ToolStripStatusLabel labelStop;
         private TextBox textBoxNamePattern;
         private Label label3;
+        private Label label4;
+        private NumericUpDown numericUpDownMaxFileSize;
+        private Label label6;
     }
 }
