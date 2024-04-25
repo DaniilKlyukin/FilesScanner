@@ -59,15 +59,15 @@
             // textBoxRoot
             // 
             textBoxRoot.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            textBoxRoot.Location = new Point(110, 12);
+            textBoxRoot.Location = new Point(143, 12);
             textBoxRoot.Name = "textBoxRoot";
-            textBoxRoot.Size = new Size(431, 23);
+            textBoxRoot.Size = new Size(398, 23);
             textBoxRoot.TabIndex = 0;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(12, 15);
+            label1.Location = new Point(45, 16);
             label1.Name = "label1";
             label1.Size = new Size(92, 15);
             label1.TabIndex = 1;
@@ -87,7 +87,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(110, 52);
+            label2.Location = new Point(37, 47);
             label2.Name = "label2";
             label2.Size = new Size(100, 15);
             label2.TabIndex = 3;
@@ -95,7 +95,7 @@
             // 
             // numericUpDownMinFileSize
             // 
-            numericUpDownMinFileSize.Location = new Point(216, 50);
+            numericUpDownMinFileSize.Location = new Point(143, 45);
             numericUpDownMinFileSize.Maximum = new decimal(new int[] { 100000000, 0, 0, 0 });
             numericUpDownMinFileSize.Name = "numericUpDownMinFileSize";
             numericUpDownMinFileSize.Size = new Size(96, 23);
@@ -105,9 +105,9 @@
             // 
             // buttonStartSearch
             // 
-            buttonStartSearch.Location = new Point(12, 123);
+            buttonStartSearch.Location = new Point(143, 103);
             buttonStartSearch.Name = "buttonStartSearch";
-            buttonStartSearch.Size = new Size(116, 24);
+            buttonStartSearch.Size = new Size(325, 24);
             buttonStartSearch.TabIndex = 5;
             buttonStartSearch.Text = "Начать поиск";
             buttonStartSearch.UseVisualStyleBackColor = true;
@@ -189,7 +189,7 @@
             // textBoxNamePattern
             // 
             textBoxNamePattern.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            textBoxNamePattern.Location = new Point(216, 79);
+            textBoxNamePattern.Location = new Point(143, 74);
             textBoxNamePattern.Name = "textBoxNamePattern";
             textBoxNamePattern.Size = new Size(325, 23);
             textBoxNamePattern.TabIndex = 10;
@@ -197,7 +197,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(81, 82);
+            label3.Location = new Point(8, 77);
             label3.Name = "label3";
             label3.Size = new Size(129, 15);
             label3.TabIndex = 11;
@@ -206,7 +206,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(446, 52);
+            label4.Location = new Point(373, 47);
             label4.Name = "label4";
             label4.Size = new Size(25, 15);
             label4.TabIndex = 12;
@@ -214,7 +214,7 @@
             // 
             // numericUpDownMaxFileSize
             // 
-            numericUpDownMaxFileSize.Location = new Point(344, 50);
+            numericUpDownMaxFileSize.Location = new Point(271, 45);
             numericUpDownMaxFileSize.Maximum = new decimal(new int[] { 100000000, 0, 0, 0 });
             numericUpDownMaxFileSize.Name = "numericUpDownMaxFileSize";
             numericUpDownMaxFileSize.Size = new Size(96, 23);
@@ -225,7 +225,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(318, 52);
+            label6.Location = new Point(245, 47);
             label6.Name = "label6";
             label6.Size = new Size(20, 15);
             label6.TabIndex = 13;
