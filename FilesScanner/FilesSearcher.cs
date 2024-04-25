@@ -48,15 +48,15 @@ namespace FilesScanner
                 var files = tryGetFilesPathsFromDirectory(currentPath) ?? new List<string>();
 
                 foreach (var file in files
-                    .Select(p => new FileInfo(p))
-                    .Where(f =>
-                    {
-                        var size = GetSizeMb(f.Length);
+                                        .Select(p => new FileInfo(p))
+                                        .Where(f =>
+                                        {
+                                            var size = GetSizeMb(f.Length);
 
-                        return size >= MinSizeMb
-                            && size <= MaxSizeMb
-                            && NamePattern.IsMatch(f.Name);
-                    }))
+                                            return size >= MinSizeMb
+                                                && size <= MaxSizeMb
+                                                && NamePattern.IsMatch(f.Name);
+                                        }))
                 {
                     if (stopPending)
                         yield break;
