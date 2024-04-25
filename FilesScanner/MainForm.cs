@@ -59,7 +59,7 @@ namespace FilesScaner
 
             var files = await filesSearcher.WideSearchAsync();
 
-            toolStripStatusLabel.Text = $"Поиск завершён: {listView.Items.Count}";
+            toolStripStatusLabel.Text = $"Поиск завершён: {listView.Items.Count} файлов";
         }
 
         private void addFileInfoToListView(FileInfo fileInfo)
@@ -75,7 +75,7 @@ namespace FilesScaner
             listView.Invoke(() =>
             {
                 listView.Items.Add(item);
-                toolStripStatusLabel.Text = $"Ведётся поиск: {listView.Items.Count}";
+                toolStripStatusLabel.Text = $"Ведётся поиск: {listView.Items.Count} файлов";
             });
         }
 
