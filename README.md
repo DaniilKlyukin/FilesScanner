@@ -4,9 +4,10 @@
 
 Главное окно
 
-![image](https://github.com/DaniilKlyukin/FilesScanner/assets/32903150/0bfd1383-1cb8-4974-941e-7b51b76bed8e)
+![image](https://github.com/DaniilKlyukin/FilesScanner/assets/32903150/22ce67bc-2afc-483d-a541-6971ddd0f5ed)
 
-Пример работы
+Пример работы, поиск изображений
 
-![image](https://github.com/DaniilKlyukin/FilesScanner/assets/32903150/196b4977-d9d1-4486-9385-afebc24c11d9)
+![image](https://github.com/DaniilKlyukin/FilesScanner/assets/32903150/4c6d2a67-63b8-4f96-903a-ee658f2d1d1d)
+
 
